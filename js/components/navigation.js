@@ -44,12 +44,27 @@ class Navigation {
         this.navMenu.classList.toggle('active');
         this.navToggle.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
+        
+        // UPDATE HAMBURGER ICON
+        const icon = this.navToggle.querySelector('i');
+        if (this.navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     }
     
     closeMobileMenu() {
         this.navMenu.classList.remove('active');
         this.navToggle.classList.remove('active');
         document.body.classList.remove('no-scroll');
+        
+        // RESET HAMBURGER ICON TO BARS
+        const icon = this.navToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
     }
     
     handleScroll() {
@@ -198,10 +213,5 @@ class Navigation {
         });
     }
 }
-
-// Initialize navigation when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new Navigation();
-});
 
 export default Navigation;
