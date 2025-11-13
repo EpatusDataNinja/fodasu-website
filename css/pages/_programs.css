@@ -1,0 +1,456 @@
+/* ===== PROGRAMS PAGE STYLES ===== */
+
+/* Program Navigation */
+.programs-nav {
+  background: var(--white);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 60px;
+  z-index: var(--z-sticky);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.program-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.program-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  background: var(--white);
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-xl);
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-nav__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.05), transparent);
+  transition: left var(--transition-slow);
+}
+
+.program-nav__link:hover::before {
+  left: 100%;
+}
+
+.program-nav__link:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.program-nav__link.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.program-nav__icon {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-1);
+  transition: all var(--transition-normal);
+}
+
+.program-nav__link:hover .program-nav__icon,
+.program-nav__link.active .program-nav__icon {
+  transform: scale(1.1);
+}
+
+.program-nav__text {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Program Sections - CRITICAL: Proper display control */
+.program-section {
+  display: none;
+  padding: var(--space-16) 0;
+  background: var(--white);
+}
+
+.program-section.active {
+  display: block;
+  animation: programFadeIn 0.6s ease-out;
+}
+
+@keyframes programFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.program-section:nth-child(even) {
+  background: var(--off-white);
+}
+
+/* Program Header */
+.program__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+  padding: var(--space-8);
+  background: linear-gradient(135deg, var(--white), var(--off-white));
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.program__icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--radius-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.program__info h2 {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  margin-bottom: var(--space-2);
+  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.program__info p {
+  font-size: var(--text-xl);
+  color: var(--text-light);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+/* Program Content */
+.program__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.program__image {
+  position: relative;
+}
+
+.program__image img {
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-2xl);
+  transition: transform var(--transition-normal);
+}
+
+.program__image:hover img {
+  transform: scale(1.02);
+}
+
+.program__details {
+  padding: var(--space-6);
+}
+
+.program__details h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-6);
+  color: var(--text-dark);
+  position: relative;
+}
+
+.program__details h3::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--space-2);
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: var(--radius-full);
+}
+
+/* Result Indicators */
+.result-indicators {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-8) 0;
+}
+
+.result-indicators li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding: var(--space-4);
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.result-indicators li:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.result-indicators li i {
+  color: var(--success-color);
+  font-size: var(--text-lg);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.result-indicators li span {
+  color: var(--text-light);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+}
+
+/* Program Benefits */
+.program__benefits {
+  margin-bottom: var(--space-8);
+}
+
+.program__benefits h3 {
+  margin-bottom: var(--space-4);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--off-white);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.benefit-item:hover {
+  background: var(--gray-100);
+  transform: translateX(4px);
+}
+
+.benefit-item i {
+  color: var(--primary-color);
+  font-size: var(--text-lg);
+  width: 20px;
+  text-align: center;
+}
+
+.benefit-item span {
+  color: var(--text-dark);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+}
+
+/* Program Stats */
+.program__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.stat-card {
+  text-align: center;
+  padding: var(--space-4);
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-extrabold);
+  color: var(--primary-color);
+  margin-bottom: var(--space-1);
+  display: block;
+}
+
+.stat-label {
+  font-size: var(--text-xs);
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--font-semibold);
+}
+
+/* Academic Activities */
+.academic-activities {
+  margin-bottom: var(--space-8);
+}
+
+.academic-activities h3 {
+  margin-bottom: var(--space-4);
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.activity-item {
+  padding: var(--space-4);
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: all var(--transition-normal);
+  border-top: 3px solid var(--primary-color);
+}
+
+.activity-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.activity-item i {
+  font-size: var(--text-2xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.activity-item h4 {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-2);
+  color: var(--text-dark);
+}
+
+.activity-item p {
+  color: var(--text-light);
+  font-size: var(--text-sm);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+/* Program Section Specific Styles */
+#athletics .program__icon {
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+}
+
+#soccer .program__icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+#academics .program__icon {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+/* Responsive Programs */
+@media (max-width: 1024px) {
+  .program__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .program__header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-4);
+  }
+  
+  .benefits-grid,
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .program__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .program-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .program-nav__link {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    min-width: auto;
+  }
+  
+  .program__header {
+    padding: var(--space-6);
+  }
+  
+  .program__info h2 {
+    font-size: var(--text-3xl);
+  }
+  
+  .program__info p {
+    font-size: var(--text-lg);
+  }
+  
+  .program__details {
+    padding: var(--space-4);
+  }
+  
+  .result-indicators li {
+    padding: var(--space-3);
+  }
+  
+  .program__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .program__icon {
+    width: 60px;
+    height: 60px;
+    font-size: var(--text-lg);
+  }
+  
+  .benefit-item {
+    padding: var(--space-2);
+  }
+}

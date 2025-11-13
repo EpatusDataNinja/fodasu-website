@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - FODASU</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="images/optimized/fodasu-logo-removebg.png" alt="FODASU Logo" class="logo">
+                <span class="logo-text">FODASU</span>
+            </div>
+
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="about.html" class="nav__link">About</a>
+                </li>
+                <li class="nav__item">
+                    <a href="programs.html" class="nav__link">Programs</a>
+                </li>
+                <li class="nav__item">
+                    <a href="events.html" class="nav__link active">Events</a>
+                </li>
+                <li class="nav__item">
+                    <a href="gallery.html" class="nav__link active">Gallery</a>
+                </li>
+                <li class="nav__item">
+                    <a href="donate.html" class="nav__link">Donate</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contact.html" class="nav__link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Gallery</h1>
+                <p>Capturing moments of transformation, achievement, and community impact</p>
+            </div>
+        </section>
+
+        <!-- Gallery Filters -->
+        <section class="gallery-filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="athletics">Athletics</button>
+                    <button class="filter-btn" data-filter="soccer">Soccer</button>
+                    <button class="filter-btn" data-filter="academics">Academics</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="community">Community</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery">
+            <div class="container">
+                <div class="gallery-grid">
+                    <!-- Athletics Images -->
+                    <div class="gallery-item" data-category="athletics">
+                        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Athletics Training">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Athletics Training</h3>
+                                <p>Young athletes developing their skills</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="soccer">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Soccer Match">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Soccer Match</h3>
+                                <p>Competitive school league games</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="academics">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Academic Competition">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Quiz Competition</h3>
+                                <p>Students showcasing their knowledge</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Award Ceremony">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Award Ceremony</h3>
+                                <p>Recognizing outstanding achievements</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="community">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Community Engagement">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Community Meeting</h3>
+                                <p>Engaging with local stakeholders</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="athletics">
+                        <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Track Event">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Track Event</h3>
+                                <p>Students competing in running events</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="soccer">
+                        <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Soccer Training">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Soccer Training</h3>
+                                <p>Skill development sessions</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="academics">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Classroom Learning">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Classroom Session</h3>
+                                <p>Academic preparation programs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Sports Day">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Annual Sports Day</h3>
+                                <p>Celebrating athletic achievements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-image" src="" alt="">
+                <div class="lightbox-caption">
+                    <h3 class="lightbox-title"></h3>
+                    <p class="lightbox-description"></p>
+                </div>
+                <div class="lightbox-nav">
+                    <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="container">
+                <h2 class="section__title">FODASU in Action</h2>
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play"></i>
+                            <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Video Thumbnail">
+                        </div>
+                        <h3>Our Impact Story</h3>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play"></i>
+                            <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Video Thumbnail">
+                        </div>
+                        <h3>Soccer Tournament Highlights</h3>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play"></i>
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Video Thumbnail">
+                        </div>
+                        <h3>Academic Awards Ceremony</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <div class="footer__logo">
+                        <img src="images/optimized/fodasu-logo-removebg.png" alt="FODASU Logo" class="logo">
+                        <span class="logo-text">FODASU</span>
+                    </div>
+                    <p class="footer__description">
+                        Molding the Future of Young People through Sports & Education in Foya Statutory District,
+                        Liberia.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social__link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3>Programs</h3>
+                    <ul class="footer__links">
+                        <li><a href="programs.html#athletics">Athletics</a></li>
+                        <li><a href="programs.html#soccer">Soccer</a></li>
+                        <li><a href="programs.html#academics">Academics</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3>Contact Info</h3>
+                    <div class="footer__contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Foya City, Foya Statutory District, Lofa County,
+                            Liberia</p>
+                        <p><i class="fas fa-phone"></i> 0776390849 / 0886647193</p>
+                        <p><i class="fas fa-envelope"></i> tituslebbie@rocketmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Foya District Academics Sports Union. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

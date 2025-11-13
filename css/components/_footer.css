@@ -1,0 +1,327 @@
+/* ===== FOOTER COMPONENT ===== */
+.footer {
+  background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+  color: var(--white);
+  padding: var(--space-16) 0 var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.footer__col h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-6);
+  color: var(--white);
+  position: relative;
+}
+
+.footer__col h3::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--space-2);
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: var(--radius-full);
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.footer__logo .logo {
+  width: 40px;
+  height: 40px;
+  /*  filter: brightness(0) invert(1); */
+}
+
+.footer__logo .logo-text {
+  font-family: var(--font-primary);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--white);
+  background: none;
+  -webkit-text-fill-color: var(--white);
+}
+
+.footer__description {
+  color: var(--gray-400);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  color: var(--white);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.social__link:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links li {
+  margin-bottom: var(--space-3);
+}
+
+.footer__links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.footer__links a::before {
+  content: '›';
+  color: var(--primary-color);
+  font-weight: var(--font-bold);
+  transition: transform var(--transition-fast);
+}
+
+.footer__links a:hover {
+  color: var(--white);
+  padding-left: var(--space-2);
+}
+
+.footer__links a:hover::before {
+  transform: translateX(3px);
+}
+
+.footer__contact {
+  color: var(--gray-400);
+  font-size: var(--text-sm);
+}
+
+.footer__contact p {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-relaxed);
+}
+
+.footer__contact i {
+  color: var(--primary-color);
+  width: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--space-6);
+  text-align: center;
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+}
+
+.footer__bottom p {
+  margin: 0;
+}
+
+/* Footer newsletter */
+.footer__newsletter {
+  margin-top: var(--space-6);
+}
+
+.footer__newsletter .form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+}
+
+.footer__newsletter .form-control::placeholder {
+  color: var(--gray-500);
+}
+
+.footer__newsletter .form-control:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-color);
+}
+
+.footer__newsletter .btn {
+  margin-top: var(--space-3);
+  width: 100%;
+}
+
+/* Back to top */
+.back-to-top {
+  position: absolute;
+  top: -20px;
+  right: var(--space-8);
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg);
+}
+
+.back-to-top:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Footer variations */
+.footer--simple {
+  background: var(--gray-800);
+  padding: var(--space-8) 0;
+}
+
+.footer--simple .footer__grid {
+  margin-bottom: var(--space-6);
+}
+
+.footer--light {
+  background: var(--off-white);
+  color: var(--text-dark);
+}
+
+.footer--light .footer__col h3 {
+  color: var(--text-dark);
+}
+
+.footer--light .footer__description,
+.footer--light .footer__links a,
+.footer--light .footer__contact {
+  color: var(--text-light);
+}
+
+.footer--light .footer__links a:hover {
+  color: var(--text-dark);
+}
+
+.footer--light .social__link {
+  background: var(--gray-200);
+  color: var(--text-dark);
+}
+
+.footer--light .social__link:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.footer--light .footer__bottom {
+  border-top-color: var(--gray-300);
+  color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--space-12) 0 var(--space-6);
+  }
+  
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+  
+  .footer__col {
+    text-align: center;
+  }
+  
+  .footer__col h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer__logo {
+    justify-content: center;
+  }
+  
+  .footer__social {
+    justify-content: center;
+  }
+  
+  .footer__contact p {
+    justify-content: center;
+  }
+  
+  .back-to-top {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+/* Footer animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer__col {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.footer__col:nth-child(1) { animation-delay: 0.1s; }
+.footer__col:nth-child(2) { animation-delay: 0.2s; }
+.footer__col:nth-child(3) { animation-delay: 0.3s; }
+.footer__col:nth-child(4) { animation-delay: 0.4s; }

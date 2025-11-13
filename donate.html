@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - FODASU</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="images/optimized/fodasu-logo-removebg.png" alt="FODASU Logo" class="logo">
+                <span class="logo-text">FODASU</span>
+            </div>
+
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="about.html" class="nav__link">About</a>
+                </li>
+                <li class="nav__item">
+                    <a href="programs.html" class="nav__link">Programs</a>
+                </li>
+                <li class="nav__item">
+                    <a href="events.html" class="nav__link active">Events</a>
+                </li>
+                <li class="nav__item">
+                    <a href="gallery.html" class="nav__link">Gallery</a>
+                </li>
+                <li class="nav__item">
+                    <a href="donate.html" class="nav__link active">Donate</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contact.html" class="nav__link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Support Our Mission</h1>
+                <p>Your donation helps transform young lives through sports and education</p>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="impact">
+            <div class="container">
+                <div class="impact__grid">
+                    <div class="impact__content">
+                        <h2>Your Impact Matters</h2>
+                        <p>Every contribution, no matter the size, helps us reach more young people in Foya District and
+                            provide them with opportunities for growth through sports and education.</p>
+
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <div class="impact-number">16,450</div>
+                                <div class="impact-label">Students Impacted</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">64</div>
+                                <div class="impact-label">Schools Reached</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">3</div>
+                                <div class="impact-label">Core Programs</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact__image">
+                        <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                            alt="Impact of Donations">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Options -->
+        <section class="donation-options">
+            <div class="container">
+                <h2 class="section__title">Ways to Give</h2>
+                <div class="donation__grid">
+                    <div class="donation-card">
+                        <div class="donation-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Sponsor a Student</h3>
+                        <p class="donation-amount">$150 per year</p>
+                        <p>Cover school fees, supplies, and sports equipment for one student for an entire year.</p>
+                        <button class="btn btn--primary" data-amount="150">Sponsor Now</button>
+                    </div>
+
+                    <div class="donation-card featured">
+                        <div class="donation-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Support a Team</h3>
+                        <p class="donation-amount">$500 per team</p>
+                        <p>Provide equipment, training, and competition fees for an entire soccer or athletics team.</p>
+                        <button class="btn btn--primary" data-amount="500">Support Team</button>
+                    </div>
+
+                    <div class="donation-card">
+                        <div class="donation-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>School Program</h3>
+                        <p class="donation-amount">$1,000 per school</p>
+                        <p>Fund comprehensive sports and academic programs for an entire school for one year.</p>
+                        <button class="btn btn--primary" data-amount="1000">Fund Program</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Donation -->
+        <section class="custom-donation">
+            <div class="container">
+                <div class="custom-donation__content">
+                    <h2>Make a Custom Donation</h2>
+                    <p>Choose an amount that works for you. Every dollar makes a difference.</p>
+
+                    <div class="donation-amounts">
+                        <button class="amount-btn" data-amount="25">$25</button>
+                        <button class="amount-btn" data-amount="50">$50</button>
+                        <button class="amount-btn" data-amount="100">$100</button>
+                        <button class="amount-btn" data-amount="250">$250</button>
+                        <button class="amount-btn" data-amount="500">$500</button>
+                    </div>
+
+                    <form class="donation-form" id="donationForm">
+                        <div class="form-group">
+                            <label for="customAmount">Or enter custom amount:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" id="customAmount" name="amount" placeholder="Enter amount" min="1"
+                                    step="1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorName">Full Name</label>
+                            <input type="text" id="donorName" name="name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorEmail">Email Address</label>
+                            <input type="email" id="donorEmail" name="email" required placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorPhone">Phone Number</label>
+                            <input type="tel" id="donorPhone" name="phone" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationType">Donation Type</label>
+                            <select id="donationType" name="type">
+                                <option value="general">General Support</option>
+                                <option value="athletics">Athletics Program</option>
+                                <option value="soccer">Soccer Program</option>
+                                <option value="academics">Academics Program</option>
+                                <option value="scholarship">Student Scholarship</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="recurring" id="recurring">
+                                Make this a monthly recurring donation
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--large">Donate Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Transparency -->
+        <section class="transparency">
+            <div class="container">
+                <h2 class="section__title">Financial Transparency</h2>
+                <div class="transparency__content">
+                    <div class="budget-chart">
+                        <div class="chart-item">
+                            <div class="chart-bar" style="width: 70%" data-percentage="70"></div>
+                            <div class="chart-label">Program Activities (70%)</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="width: 20%" data-percentage="20"></div>
+                            <div class="chart-label">Operational Costs (20%)</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="width: 10%" data-percentage="10"></div>
+                            <div class="chart-label">Administrative (10%)</div>
+                        </div>
+                    </div>
+
+                    <div class="transparency-text">
+                        <h3>How Your Donation is Used</h3>
+                        <p>We are committed to financial transparency and ensuring that your donations have the maximum
+                            impact. 70% of all funds go directly to program activities, while 20% covers operational
+                            costs and 10% goes to administrative expenses.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Regular financial reporting</li>
+                            <li><i class="fas fa-check"></i> Independent audits</li>
+                            <li><i class="fas fa-check"></i> Donor impact reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <div class="footer__logo">
+                        <img src="images/optimized/fodasu-logo-removebg.png" alt="FODASU Logo" class="logo">
+                        <span class="logo-text">FODASU</span>
+                    </div>
+                    <p class="footer__description">
+                        Molding the Future of Young People through Sports & Education in Foya Statutory District,
+                        Liberia.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social__link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3>Programs</h3>
+                    <ul class="footer__links">
+                        <li><a href="programs.html#athletics">Athletics</a></li>
+                        <li><a href="programs.html#soccer">Soccer</a></li>
+                        <li><a href="programs.html#academics">Academics</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3>Contact Info</h3>
+                    <div class="footer__contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Foya City, Foya Statutory District, Lofa County,
+                            Liberia</p>
+                        <p><i class="fas fa-phone"></i> 0776390849 / 0886647193</p>
+                        <p><i class="fas fa-envelope"></i> tituslebbie@rocketmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Foya District Academics Sports Union. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
