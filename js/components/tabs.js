@@ -30,10 +30,22 @@ class Tabs {
             button.addEventListener('keydown', (e) => this.handleTabKeydown(e));
         });
         
-        // Mobile tab toggle
+        // Mobile tab toggle with touch support
         const tabToggles = $$('.tab-toggle', this.container);
         tabToggles.forEach(toggle => {
+            // Click event
             toggle.addEventListener('click', () => this.toggleTabMenu(toggle));
+            
+            // Touch events for better mobile support
+            toggle.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.toggleTabMenu(toggle);
+            });
+            
+            // Prevent default touch behavior
+            toggle.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+            }, { passive: false });
         });
         
         // Close mobile menu when clicking on a tab button
