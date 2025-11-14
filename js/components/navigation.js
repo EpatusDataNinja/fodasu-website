@@ -22,7 +22,16 @@ class Navigation {
     bindEvents() {
         // Toggle mobile menu
         if (this.navToggle) {
+            // Use both click and touchend for better mobile support
             this.navToggle.addEventListener('click', () => this.toggleMobileMenu());
+            this.navToggle.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.toggleMobileMenu();
+            });
+            // Prevent text selection on long press
+            this.navToggle.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+            }, { passive: false });
         }
         
         // Close mobile menu when clicking on links
