@@ -195,13 +195,25 @@
                 <h2 class="section__title">Leadership Structure</h2>
 
                 <div class="tab-container">
-                    <div class="leadership__tabs">
-                        <button class="tab-btn active" data-tab="executive">Executive Committee</button>
-                        <button class="tab-btn" data-tab="soccer">Soccer Committee</button>
-                        <button class="tab-btn" data-tab="athletics">Athletics Committee</button>
-                        <button class="tab-btn" data-tab="academics">Academics Committee</button>
+                    <div class="tab-wrapper">
+                        <button class="tab-toggle" id="tab-toggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="leadership__tabs" id="leadership-tabs">
+                            <button class="tab-btn active" data-tab="executive">Executive Committee</button>
+                            <button class="tab-btn" data-tab="soccer">Soccer Committee</button>
+                            <button class="tab-btn" data-tab="athletics">Athletics Committee</button>
+                            <button class="tab-btn" data-tab="academics">Academics Committee</button>
+                        </div>
                     </div>
+                </div>
 
+                <!-- Tab Title Display (Outside tab container) -->
+                <div class="tab-title-display">
+                    <h3 id="active-tab-title">Executive Committee</h3>
+                </div>
+
+                <div class="tab-container">
                     <div class="tab-content active" id="executive">
                         <div class="leaders-grid">
                             <div class="leader-card">

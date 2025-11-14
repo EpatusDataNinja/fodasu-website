@@ -30,6 +30,20 @@ class Tabs {
             button.addEventListener('keydown', (e) => this.handleTabKeydown(e));
         });
         
+        // Mobile tab toggle
+        const tabToggles = $$('.tab-toggle', this.container);
+        tabToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => this.toggleTabMenu(toggle));
+        });
+        
+        // Close mobile menu when clicking on a tab button
+        this.tabButtons.forEach(button => {
+            button.addEventListener('click', () => this.closeTabMenu());
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => this.handleOutsideClick(e));
+        
         // Handle window resize for responsive behavior
         window.addEventListener('resize', debounce(() => this.handleResize(), 250));
         
@@ -68,6 +82,67 @@ class Tabs {
         e.preventDefault();
         const button = e.currentTarget;
         this.switchToTab(button);
+    }
+    
+    toggleTabMenu(toggle) {
+        const tabsContainer = toggle.nextElementSibling;
+        if (!tabsContainer) return;
+        
+        const isActive = tabsContainer.classList.contains('active');
+        
+        if (isActive) {
+            tabsContainer.classList.remove('active');
+            toggle.classList.remove('active');
+            // Update hamburger icon
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        } else {
+            tabsContainer.classList.add('active');
+            toggle.classList.add('active');
+            // Update hamburger icon
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        }
+    }
+    
+    closeTabMenu() {
+        const tabToggles = $$('.tab-toggle', this.container);
+        tabToggles.forEach(toggle => {
+            const tabsContainer = toggle.nextElementSibling;
+            if (tabsContainer && tabsContainer.classList.contains('active')) {
+                tabsContainer.classList.remove('active');
+                toggle.classList.remove('active');
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    }
+    
+    handleOutsideClick(e) {
+        // Close menu if clicking outside of tab area and on mobile
+        if (isMobile()) {
+            const tabWrappers = $$('.tab-wrapper');
+            let isClickInside = false;
+            
+            tabWrappers.forEach(wrapper => {
+                if (wrapper.contains(e.target)) {
+                    isClickInside = true;
+                }
+            });
+            
+            if (!isClickInside) {
+                this.closeTabMenu();
+            }
+        }
     }
     
     handleTabKeydown(e) {
@@ -253,8 +328,19 @@ class Tabs {
         activeContent.style.opacity = '1';
         activeContent.style.transform = 'translateY(0)';
         
+        // Update tab title display
+        this.updateTabTitleDisplay(activeButton);
+        
         // Update accessibility attributes
         this.updateTabAccessibility();
+    }
+    
+    updateTabTitleDisplay(activeButton) {
+        const tabTitleElement = $('#active-tab-title', this.container);
+        if (tabTitleElement) {
+            const tabTitle = activeButton.textContent.trim();
+            tabTitleElement.textContent = tabTitle;
+        }
     }
     
     updateTabAccessibility() {

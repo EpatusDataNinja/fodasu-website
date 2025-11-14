@@ -146,6 +146,9 @@ class Events {
         this.filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         
+        // Update filter title display
+        this.updateFilterTitleDisplay(button);
+        
         // Apply filter
         this.currentFilter = filter;
         this.filterEvents(filter);
@@ -159,6 +162,14 @@ class Events {
         
         // Scroll to events section
         this.scrollToEvents();
+    }
+    
+    updateFilterTitleDisplay(filterButton) {
+        const titleElement = document.getElementById('active-filter-title');
+        if (titleElement) {
+            const filterTitle = filterButton.textContent.trim();
+            titleElement.textContent = filterTitle;
+        }
     }
     
     initResponsive() {

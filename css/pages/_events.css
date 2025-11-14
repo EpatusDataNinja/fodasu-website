@@ -96,6 +96,54 @@
   box-shadow: var(--shadow-md);
 }
 
+/* Filter Title Display - Hidden on desktop */
+.filter-title-section {
+  display: none;
+  padding: 0;
+}
+
+.filter-title-display {
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  animation: titleSlideIn 0.4s ease-out;
+  margin: var(--space-4) 0 0 0;
+  width: 100%;
+}
+
+.filter-title-display h3 {
+  margin: 0;
+  color: var(--white);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.filter-title-display h3::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background: var(--white);
+  border-radius: 2px;
+}
+
+@keyframes titleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Events Grid */
 .events-grid {
   display: grid;
@@ -443,6 +491,7 @@
 .upcoming-events {
   padding: var(--space-16) 0;
   background: var(--white);
+  scroll-margin-top: 200px;
 }
 
 .upcoming-events .section__title {
@@ -453,6 +502,7 @@
 .past-events {
   padding: var(--space-16) 0;
   background: var(--off-white);
+  scroll-margin-top: 200px;
 }
 
 .past-events .section__title {
@@ -574,6 +624,34 @@
     display: block;
     width: 100%;
     text-align: center;
+  }
+  
+  /* Filter title section - SHOW ON MOBILE ONLY */
+  .filter-title-section {
+    display: block;
+    padding: var(--space-4) 0;
+    background: transparent;
+  }
+  
+  .filter-title-display {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    margin: 0;
+  }
+  
+  .filter-title-display h3 {
+    font-size: var(--text-xl);
+  }
+  
+  .upcoming-events,
+  .past-events {
+    padding: var(--space-6) 0;
+    margin-top: 0;
+  }
+  
+  .upcoming-events .section__title,
+  .past-events .section__title {
+    margin-bottom: var(--space-6);
   }
   
   .event-card {
