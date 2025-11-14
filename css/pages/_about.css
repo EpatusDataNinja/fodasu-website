@@ -251,7 +251,7 @@
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  z-index: 1000;
+  z-index: var(--z-popover);
   touch-action: manipulation;
   -webkit-user-select: none;
   user-select: none;
@@ -614,7 +614,7 @@
     margin: 0 auto var(--space-3) auto;
     text-align: center;
     padding: 0;
-    z-index: 1000;
+    z-index: var(--z-popover);
     touch-action: manipulation;
     -webkit-user-select: none;
     user-select: none;
