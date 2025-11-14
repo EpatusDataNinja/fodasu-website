@@ -21,6 +21,29 @@ class Tabs {
         this.setInitialActiveTab();
         this.updateTabAccessibility();
         this.handleResize();
+
+        // Diagnostic: Listen at capture phase to detect pointer/touch events
+        // inside the tab-toggle area. Helps identify overlays that block taps.
+        try {
+            const tabToggles = $$('.tab-toggle', this.container);
+            const captureHandler = (e) => {
+                tabToggles.forEach(toggle => {
+                    const rect = toggle.getBoundingClientRect();
+                    const x = e.clientX || (e.touches && e.touches[0] && e.touches[0].clientX);
+                    const y = e.clientY || (e.touches && e.touches[0] && e.touches[0].clientY);
+                    if (typeof x === 'number' && typeof y === 'number') {
+                        if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+                            try { console.info('CAPTURE: event inside tab-toggle', e.type); } catch (err) {}
+                        }
+                    }
+                });
+            };
+
+            document.addEventListener('pointerup', captureHandler, true);
+            document.addEventListener('touchend', captureHandler, true);
+        } catch (err) {
+            // ignore
+        }
     }
     
     bindEvents() {
