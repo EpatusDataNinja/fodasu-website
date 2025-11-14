@@ -53,30 +53,17 @@ class Tabs {
             button.addEventListener('keydown', (e) => this.handleTabKeydown(e));
         });
         
-        // Mobile tab toggle with broader pointer support
+        // Mobile tab toggle
         const tabToggles = $$('.tab-toggle', this.container);
         tabToggles.forEach(toggle => {
             // Debug binding (helps when testing in device console)
             try { console.debug('Binding tab toggle listener', toggle); } catch (err) {}
 
-            // Click event (desktop and some mobile browsers)
+            // Click event (works on desktop and mobile browsers)
             toggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.toggleTabMenu(toggle);
             });
-
-            // Pointer events (unified handling for mouse, touch, pen)
-            toggle.addEventListener('pointerup', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.toggleTabMenu(toggle);
-            });
-
-            // Touchend fallback for older browsers
-            toggle.addEventListener('touchend', (e) => {
-                e.stopPropagation();
-                this.toggleTabMenu(toggle);
-            }, { passive: true });
         });
         
         // Close mobile menu when clicking on a tab button
