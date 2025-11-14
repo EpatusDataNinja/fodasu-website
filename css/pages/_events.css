@@ -12,11 +12,43 @@
   background: rgba(255, 255, 255, 0.95);
 }
 
+/* Events Filter Wrapper - for mobile toggle */
+.events-filter-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Filter Toggle Button */
+.events-filter-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--text-2xl);
+  cursor: pointer;
+  padding: var(--space-2);
+  transition: all var(--transition-normal);
+  position: absolute;
+  left: 0;
+}
+
+.events-filter-toggle:hover {
+  color: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.events-filter-toggle.active i {
+  color: var(--primary-dark);
+}
+
 .events-filter {
   display: flex;
   justify-content: center;
   gap: var(--space-3);
   flex-wrap: wrap;
+  transition: all var(--transition-normal);
 }
 
 .filter-btn {
@@ -436,13 +468,27 @@
 }
 
 @media (max-width: 768px) {
+  .events-nav {
+    padding: var(--space-4) 0;
+  }
+  
+  .events-filter-wrapper {
+    justify-content: flex-start;
+  }
+  
+  .events-filter-toggle {
+    display: block;
+  }
+  
+  /* Desktop filter menu, hidden on mobile by default */
   .events-filter {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    gap: var(--space-2);
   }
   
   .filter-btn {
-    text-align: center;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
   }
   
   .events-grid {
@@ -482,6 +528,54 @@
 }
 
 @media (max-width: 640px) {
+  .events-nav {
+    padding: var(--space-3) 0;
+    top: 50px;
+  }
+  
+  /* Mobile menu - hidden by default, shown when active */
+  .events-filter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: var(--space-3);
+    gap: var(--space-2);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all var(--transition-normal);
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Show menu when active */
+  .events-filter.active {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+  
+  .events-filter-toggle {
+    position: static;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
   .event-card {
     margin-bottom: var(--space-4);
   }

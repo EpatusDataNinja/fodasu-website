@@ -225,16 +225,17 @@
 }
 
 /* Leadership Tabs */
-.leadership-tabs {
-  margin-bottom: var(--space-8);
+.tab-container {
+  width: 100%;
 }
 
-.tab-buttons {
+.leadership__tabs {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
   border-bottom: 2px solid var(--gray-200);
+  padding: 0;
 }
 
 .tab-btn {
@@ -249,6 +250,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: var(--text-sm);
+  position: relative;
 }
 
 .tab-btn:hover {

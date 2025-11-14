@@ -1,5 +1,5 @@
 // ===== EVENTS COMPONENT =====
-import { $, $$, debounce, showNotification } from './utils/helpers.js';
+import { $, $$, debounce, showNotification, isMobile } from './utils/helpers.js';
 
 class Events {
     constructor() {
@@ -7,10 +7,13 @@ class Events {
         this.eventCards = $$('.event-card');
         this.calendarDays = $$('.event-day');
         this.loadMoreBtn = $('.load-more-btn');
+        this.filterToggle = $('#events-filter-toggle');
+        this.filterMenu = $('#events-filter');
         
         this.currentFilter = 'all';
         this.visibleEvents = 6; // Initial number of events to show
         this.allEvents = [];
+        this.isMobileMenuOpen = false;
         
         this.init();
     }
@@ -20,13 +23,22 @@ class Events {
         this.initFiltering();
         this.initCalendarInteractions();
         this.initEventCounters();
+        this.initResponsive();
     }
     
     bindEvents() {
+        // Mobile filter toggle
+        if (this.filterToggle) {
+            this.filterToggle.addEventListener('click', () => this.toggleFilterMenu());
+        }
+        
         // Filter buttons
         this.filterButtons.forEach(button => {
             button.addEventListener('click', (e) => this.handleFilterClick(e));
         });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => this.handleOutsideClick(e));
         
         // Calendar day clicks
         this.calendarDays.forEach(day => {
@@ -78,6 +90,54 @@ class Events {
         });
     }
     
+    toggleFilterMenu() {
+        this.isMobileMenuOpen = !this.isMobileMenuOpen;
+        
+        if (this.filterMenu) {
+            if (this.isMobileMenuOpen) {
+                this.filterMenu.classList.add('active');
+                this.filterToggle.classList.add('active');
+                // Update hamburger icon
+                const icon = this.filterToggle.querySelector('i');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                this.filterMenu.classList.remove('active');
+                this.filterToggle.classList.remove('active');
+                // Update hamburger icon
+                const icon = this.filterToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    }
+    
+    closeFilterMenu() {
+        if (this.isMobileMenuOpen) {
+            this.isMobileMenuOpen = false;
+            if (this.filterMenu) {
+                this.filterMenu.classList.remove('active');
+                this.filterToggle.classList.remove('active');
+                const icon = this.filterToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    }
+    
+    handleOutsideClick(e) {
+        // Close menu if clicking outside of filter area and on mobile
+        if (isMobile() && this.isMobileMenuOpen) {
+            const isClickInside = 
+                (this.filterMenu && this.filterMenu.contains(e.target)) ||
+                (this.filterToggle && this.filterToggle.contains(e.target));
+            
+            if (!isClickInside) {
+                this.closeFilterMenu();
+            }
+        }
+    }
+    
     handleFilterClick(e) {
         const button = e.currentTarget;
         const filter = button.getAttribute('data-filter');
@@ -94,8 +154,20 @@ class Events {
         this.visibleEvents = 6;
         this.updateLoadMoreButton();
         
+        // Close mobile menu after selection
+        this.closeFilterMenu();
+        
         // Scroll to events section
         this.scrollToEvents();
+    }
+    
+    initResponsive() {
+        // Hide filter toggle on desktop, show on mobile
+        window.addEventListener('resize', debounce(() => {
+            if (!isMobile() && this.isMobileMenuOpen) {
+                this.closeFilterMenu();
+            }
+        }, 250));
     }
     
     filterEvents(filter) {

@@ -65,13 +65,18 @@
         <!-- Events Navigation -->
         <section class="events-nav">
             <div class="container">
-                <div class="events-filter">
-                    <button class="filter-btn active" data-filter="all">All Events</button>
-                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
-                    <button class="filter-btn" data-filter="past">Past Events</button>
-                    <button class="filter-btn" data-filter="athletics">Athletics</button>
-                    <button class="filter-btn" data-filter="soccer">Soccer</button>
-                    <button class="filter-btn" data-filter="academics">Academics</button>
+                <div class="events-filter-wrapper">
+                    <button class="events-filter-toggle" id="events-filter-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="events-filter" id="events-filter">
+                        <button class="filter-btn active" data-filter="all">All Events</button>
+                        <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                        <button class="filter-btn" data-filter="past">Past Events</button>
+                        <button class="filter-btn" data-filter="athletics">Athletics</button>
+                        <button class="filter-btn" data-filter="soccer">Soccer</button>
+                        <button class="filter-btn" data-filter="academics">Academics</button>
+                    </div>
                 </div>
             </div>
         </section>
