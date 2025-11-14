@@ -435,20 +435,31 @@ class Tabs {
     }
     
     handleResize() {
-        // Handle responsive tab behavior
-        this.tabContainers.forEach(container => {
-            if (isMobile()) {
-                container.classList.add('tabs-mobile');
-                container.classList.remove('tabs-desktop');
-            } else {
-                container.classList.add('tabs-desktop');
-                container.classList.remove('tabs-mobile');
-            }
-        });
-        
-        // Adjust tab content height if needed
-        this.adjustTabContentHeight();
+  // Handle responsive tab behavior
+  this.tabContainers.forEach(container => {
+    const isMobileView = window.innerWidth <= 640; // Use 640px breakpoint
+    
+    if (isMobileView) {
+      container.classList.add('tabs-mobile');
+      container.classList.remove('tabs-desktop');
+      
+      // Close any open mobile menus when switching to desktop
+      const tabToggles = $$('.tab-toggle', container);
+      tabToggles.forEach(toggle => {
+        const tabsContainer = toggle.nextElementSibling;
+        if (tabsContainer && tabsContainer.classList.contains('active')) {
+          this.closeTabMenu();
+        }
+      });
+    } else {
+      container.classList.add('tabs-desktop');
+      container.classList.remove('tabs-mobile');
     }
+  });
+  
+  // Adjust tab content height if needed
+  this.adjustTabContentHeight();
+}
     
     adjustTabContentHeight() {
         // Set consistent height for tab contents

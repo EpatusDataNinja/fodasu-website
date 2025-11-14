@@ -236,17 +236,19 @@
   align-items: center;
   justify-content: flex-start;
   gap: var(--space-3);
+  margin-bottom: var(--space-6);
 }
 
-/* Mobile Tab Toggle Button */
+/* Mobile Tab Toggle Button - FIXED */
 .tab-toggle {
-  display: none;
-  background: transparent;
+  display: none; /* Hidden on desktop */
+  background: var(--primary-color);
   border: none;
-  color: var(--primary-color);
-  font-size: var(--text-2xl);
+  color: var(--white);
+  font-size: var(--text-xl);
   cursor: pointer;
   padding: var(--space-3);
+  border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
   width: 44px;
   height: 44px;
@@ -256,22 +258,17 @@
   -webkit-user-select: none;
   user-select: none;
   pointer-events: auto;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .tab-toggle:hover {
-  color: var(--primary-dark);
-  transform: scale(1.1);
+  background: var(--primary-dark);
+  transform: scale(1.05);
 }
 
-.tab-toggle:active {
-  opacity: 0.7;
-}
-
-.tab-toggle.active i {
-  color: var(--primary-dark);
+.tab-toggle.active {
+  background: var(--primary-dark);
 }
 
 .tab-toggle i {
@@ -285,7 +282,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-8);
   border-bottom: 2px solid var(--gray-200);
   padding: 0;
   width: 100%;
@@ -340,44 +336,20 @@
 /* Tab Title Display - Hidden on desktop */
 .tab-title-display {
   display: none;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   padding: var(--space-4) var(--space-6);
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  animation: titleSlideIn 0.4s ease-out;
 }
 
 .tab-title-display h3 {
   margin: 0;
   color: var(--white);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--font-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.tab-title-display h3::before {
-  content: '';
-  display: inline-block;
-  width: 4px;
-  height: 24px;
-  background: var(--white);
-  border-radius: 2px;
-}
-
-@keyframes titleSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .leaders-grid {
@@ -541,25 +513,28 @@
   }
   
   .tab-wrapper {
-    position: relative;
     justify-content: center;
+    flex-direction: column;
+    gap: var(--space-4);
   }
   
   .leadership__tabs {
     flex-direction: column;
     border-bottom: none;
-    border-right: 2px solid var(--gray-200);
-    width: auto;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
   }
   
   .tab-btn {
     border-bottom: none;
-    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
     text-align: left;
+    width: 100%;
   }
   
   .tab-btn.active {
-    border-right-color: var(--primary-color);
+    border-left-color: var(--primary-color);
     border-bottom: none;
   }
   
@@ -596,76 +571,53 @@
     padding: var(--space-4);
   }
   
-  /* Mobile hamburger menu for leadership tabs */
-  .tab-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0;
-  }
-  
+  /* SHOW TAB TOGGLE ON MOBILE */
   .tab-toggle {
-    display: block;
-    position: relative;
-    width: 44px;
-    height: 44px;
-    margin: 0 auto var(--space-3) auto;
-    text-align: center;
-    padding: 0;
-    z-index: var(--z-popover);
-    touch-action: manipulation;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: auto;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important; /* Force show on mobile */
+    margin: 0 auto; /* Center the toggle */
   }
   
-  /* Desktop tabs menu, hidden on mobile by default */
+  /* MOBILE MENU STYLES - FIXED */
   .leadership__tabs {
-    flex-direction: column;
-    gap: var(--space-0);
-    border-bottom: none;
-    margin-bottom: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all var(--transition-normal);
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
+    flex-direction: column;
     background: var(--white);
-    border-bottom: 1px solid var(--gray-200);
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: var(--space-3);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: var(--z-dropdown);
+    margin-top: var(--space-2);
   }
   
   /* Show menu when active */
   .leadership__tabs.active {
-    max-height: 500px;
+    max-height: 400px;
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
-    margin-bottom: var(--space-8);
+    transform: translateY(0);
   }
   
   .tab-btn {
     width: 100%;
     text-align: center;
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-lg);
-    border-bottom: none;
-    border-left: 3px solid transparent;
+    padding: var(--space-4) var(--space-4);
+    border-radius: 0;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid var(--gray-200);
     background: transparent;
     transition: all var(--transition-normal);
+  }
+  
+  .tab-btn:last-child {
+    border-bottom: none;
   }
   
   .tab-btn:hover {
@@ -675,25 +627,16 @@
   .tab-btn.active {
     background: var(--off-white);
     border-left-color: var(--primary-color);
-    border-bottom: none;
+    border-bottom: 1px solid var(--gray-200);
   }
   
-  /* Tab title display mobile styles - SHOW ON MOBILE ONLY */
+  /* Tab title display - SHOW ON MOBILE */
   .tab-title-display {
     display: block;
     margin-bottom: var(--space-4);
-    padding: var(--space-3) var(--space-4);
-  }
-  
-  .tab-title-display h3 {
-    font-size: var(--text-xl);
   }
   
   .tab-container + .tab-container {
     margin-top: 0;
-  }
-  
-  .tab-content {
-    padding-top: var(--space-2);
   }
 }

@@ -78,6 +78,16 @@ body {
   overflow-x: hidden;
 }
 
+/* Prevent scrolling when mobile menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Ensure mobile menu appears above content */
+.nav__menu {
+  z-index: var(--z-fixed);
+}
+
 /* Main content area */
 .main-content {
   min-height: 100vh;
