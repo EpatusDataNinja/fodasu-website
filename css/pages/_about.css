@@ -237,6 +237,7 @@
   justify-content: flex-start;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
+  z-index: calc(var(--z-popover) + 1);
 }
 
 /* Mobile Tab Toggle Button - FIXED */
@@ -254,10 +255,10 @@
   height: 44px;
   flex-shrink: 0;
   z-index: var(--z-popover);
-  touch-action: manipulation;
   -webkit-user-select: none;
   user-select: none;
   pointer-events: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -286,6 +287,7 @@
   padding: 0;
   width: 100%;
   transition: all var(--transition-normal);
+  position: relative;
 }
 
 .tab-btn {
@@ -573,10 +575,18 @@
   
   /* SHOW TAB TOGGLE ON MOBILE */
   .tab-toggle {
-    display: flex !important; /* Force show on mobile */
-    margin: 0 auto; /* Center the toggle */
+    display: flex !important;
   }
   
+  /* Tab wrapper positioning on mobile */
+  .tab-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* MOBILE MENU STYLES - FIXED */
   .leadership__tabs {
     position: absolute;
@@ -595,6 +605,8 @@
     transition: all var(--transition-normal);
     z-index: var(--z-dropdown);
     margin-top: var(--space-2);
+    padding: 0;
+    width: 100%;
   }
   
   /* Show menu when active */
@@ -603,6 +615,7 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    padding: 0;
   }
   
   .tab-btn {
